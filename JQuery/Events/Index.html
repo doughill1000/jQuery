@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <link href="CSS.css" rel="stylesheet" />
+   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <title>Events</title>
+</head>
+<body>
+
+   <input type="hidden" value="Output" id="OutputText"  />
+
+   <input type="hidden" value="Change" id="SelectChange" />
+
+   <input type="button" value="Submit" id="SubmitButton"/>
+
+   <input type="text" class="change" value="Value"/>
+
+   <br />
+
+   <select id="SelectOptions" class="change">
+      <option>Option 1</option>
+      <option>Option 2</option>
+   </select>
+
+   <div id="DivOutput"></div>
+
+   <style type="text/css">
+
+   </style>
+
+
+
+   <script>
+      
+      ///*Either way works, returns DOM element*/
+      //var button = $("#SubmitButton")[0];
+      //button = document.getElementById("SubmitButton");
+      ///***************************************/
+      //if (document.addEventListener) {
+      //   button.addEventListener('click', function () { alert('Clicked Button'); }, false);
+      //}
+      //   //Used for IE 8 and below
+      //else {
+      //   button.attachEvent('onclick', function () { alert('Clicked IE Button'); });
+      //}
+
+$(document).ready(function PageLoad() {
+   WireEvents();
+});
+
+function WireEvents() {
+   $('#SubmitButton').click(function ClickedButton() {
+      var value = $('#OutputText').val();
+      $('#DivOutput').append(value + '<br />');
+   });
+
+   $('.change').change(function SelectChanged() {         
+      $(this).toggleClass('Highlight');
+   });
+
+   $('.change').mouseenter(function MouseEnter() {
+      ToggleHighlight(this);
+      $(this).css('cursor','progress')
+   })
+   $('.change').mouseleave(function MouseLeave() {
+      ToggleHighlight(this);
+      $(this).css('cursor', 'pointer')
+   })
+
+   function ToggleHighlight(element) {
+      if($(element).has('#SubmitButton')){
+         $(element).css('cursor', 'progress');
+      }
+      $(element).toggleClass('Hover');
+   }
+}
+
+function CheckDirty(value) {
+   var oldValue = value;
+}
+   </script>
+
+
+
+</body>
+</html>

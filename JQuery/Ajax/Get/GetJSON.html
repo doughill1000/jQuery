@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <script src="../../Scripts/jquery-2.1.3.js"></script>
+   <title>JSON</title>
+   <script>
+      $(document).ready(function PageLoad() {
+         $('#MyButton').click(function GetJSON() {
+            $.ajax({
+               url: 'http://jsonip.com',
+               dataType: 'json',
+               success: function Success(data, status, xhr) {
+                  $.each(data, function (dt) {
+                     var mydata = data.ip;
+                     $('#Output').append(mydata + '<br />');
+                  })
+               },
+               error: function Error(xhr, status, error) {
+                  alert('Error occured: ' + status);
+               }
+            })
+         });
+      });
+   </script>
+</head>
+<body>
+
+   <button id="MyButton">Click to get JSON from HazmatAPI</button>
+   <div id="Output"></div>
+</body>
+</html>

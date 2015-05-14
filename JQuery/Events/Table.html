@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <link href="CSS.css" rel="stylesheet" />
+   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <title>ON</title>
+   <script>
+      $(document).ready(function PageLoad() {
+         var tbody = $('#customers tbody');
+         $('#addRow').on('click', function () {
+            tbody.append('<tr><td>New</td><td>Row</td></tr>')
+         });
+
+         tbody.on('click', 'td', function () {
+            alert($(this).text());
+         });     
+      });
+   </script>
+</head>
+<body>
+   <button id="addRow">Add Row</button>
+   <table id="customers">
+      <tr>
+         <td>Doug</td>
+         <td>Hill</td>
+      </tr>
+      <tr>
+         <td>Steve</td>
+         <td>Schilling</td>
+      </tr>
+      <tr>
+         <td>Steve</td>
+         <td>Hull</td>
+      </tr>
+   </table>
+
+</body>
+</html>

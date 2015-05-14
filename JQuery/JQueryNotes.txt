@@ -1,0 +1,16 @@
+﻿//Node Manipulation
+
+.append()
+.appendTo()
+.prepend()
+.prependTo()
+.wrap() //Wraps element with parent
+.remove()
+
+
+$('.Class').append('<span>(office)</span>')
+
+$('.class').wrap('<div class="Parent_Class"');
+   <div class = "Parent_Class">
+      <div class="class"></div>
+   </div>
